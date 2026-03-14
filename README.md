@@ -170,7 +170,7 @@ Drag-and-drop also works — LANA auto-detects file paths pasted or dragged into
 
 ## Proxy Mode
 
-LANA CODE can route through **lana-proxy** for advanced model routing, caching, analytics, and request queuing:
+LANA CODE can route through **[lana-proxy](https://github.com/redroostertech/lana-proxy)** for advanced model routing, caching, analytics, and request queuing:
 
 ```bash
 # Start lana-proxy (see lana-proxy README)
@@ -346,7 +346,7 @@ LANA CODE is part of the broader LANA ecosystem:
 | Tool | Description |
 |---|---|
 | **lana-code** | Agentic coding CLI (this project) |
-| **lana-proxy** | Anthropic-to-OpenAI API translation proxy |
+| **[lana-proxy](https://github.com/redroostertech/lana-proxy)** | Anthropic-to-OpenAI API translation proxy |
 
 ## License
 
