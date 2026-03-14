@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// LANA CODER — Ink-based terminal UI entry point
+// LANA CODE — Ink-based terminal UI entry point
 
 import React from 'react';
 import { render } from 'ink';

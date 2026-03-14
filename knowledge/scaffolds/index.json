@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "description": "LANA CODER scaffold knowledge base — reference implementations for project creation",
+  "description": "LANA CODE scaffold knowledge base — reference implementations for project creation",
   "usage": "When a user asks to create/initialize a project, find the matching scaffold, read its files, and adapt them to the user's requirements (project name, bundle ID, etc.)",
   "categories": {
     "mobile": {

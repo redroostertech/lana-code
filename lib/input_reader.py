@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-LANA CODER — readline-based input reader.
+LANA CODE — readline-based input reader.
 
 Provides line editing (history, arrow keys, Ctrl shortcuts) with
 @ detection for the file picker.

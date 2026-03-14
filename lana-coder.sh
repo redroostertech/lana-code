@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# LANA CODER — main REPL and agentic tool loop
+# LANA CODE — main REPL and agentic tool loop
 # Note: no `set -e` — interactive REPLs must handle errors explicitly
 
 set -uo pipefail 2>/dev/null || true
@@ -526,7 +526,7 @@ handle_command() {
             return 0
             ;;
         /version|/v)
-            printf "  ${C_BOLD}LANA CODER${C_RESET} v0.3.0\n"
+            printf "  ${C_BOLD}LANA CODE${C_RESET} v0.3.0\n"
             printf "  ${C_DIM}Model: %s${C_RESET}\n" "$(basename "$(get_model_path "$CURRENT_MODEL")" .gguf)"
             printf "  ${C_DIM}Server: %s${C_RESET}\n" "$API_URL"
             return 0

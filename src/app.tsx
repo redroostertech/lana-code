@@ -1107,7 +1107,7 @@ export default function App({ config, systemPrompt, toolDefs }: AppProps) {
         }
         case 'version':
         case 'v':
-          addItem({ type: 'status', content: `LANA CODER v0.4.0\nModel: ${config.apiModel}\nServer: ${config.apiUrl}` });
+          addItem({ type: 'status', content: `LANA CODE v0.4.0\nModel: ${config.apiModel}\nServer: ${config.apiUrl}` });
           return;
         case 'subagent':
         case 'sa':

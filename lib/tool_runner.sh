@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# LANA CODER — Thin bash shim for tool execution.
+# LANA CODE — Thin bash shim for tool execution.
 # Called by the Node.js frontend via child_process.spawn.
 #
 # Usage: bash tool_runner.sh <tool_name> <args_json>

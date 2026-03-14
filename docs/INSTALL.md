@@ -111,7 +111,7 @@ This installs:
   models/
     Qwen2.5-Coder-14B-*.gguf   Default coding model
     nomic-embed-text-*.gguf     Embedding model (for vector search)
-~/Desktop/local-coder/          LANA CODER source
+~/Desktop/local-coder/          LANA CODE source
   bin/lana-code                 Entry point
   bin/lana-code-ink             Ink TUI entry point
   src/                          TypeScript source
@@ -173,7 +173,7 @@ lana-code
 
 ## Updating
 
-### Update LANA CODER
+### Update LANA CODE
 
 ```bash
 cd ~/Desktop/local-coder

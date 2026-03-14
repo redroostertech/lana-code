@@ -22,7 +22,7 @@ LANA runs as a React Ink terminal application with a rich interactive interface.
 
 ```
 ┌─────────────────────────────────────────┐
-│  LANA CODER v0.4.0                      │
+│  LANA CODE v0.4.0                      │
 │  Model: qwen2.5 | Dir: ~/my-project    │
 ├─────────────────────────────────────────┤
 │                                         │

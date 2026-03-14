@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# LANA CODER — Locally Autonomous Neural Agent
+# LANA CODE — Locally Autonomous Neural Agent
 # Part of the LANA suite. CLI entry point.
 # Usage: lana-code [options] [path]
 
@@ -15,7 +15,7 @@ LANA_VERSION="0.3.0"
 usage() {
     cat <<'EOF'
 
-  LANA CODER — Locally Autonomous Neural Agent
+  LANA CODE — Locally Autonomous Neural Agent
   Part of the LANA suite
 
   Usage:
@@ -158,7 +158,7 @@ fi
 
 # ── Validate LANA installation ────────────────────────
 if [[ ! -f "$LANA_MAIN" ]]; then
-    echo "Error: LANA CODER not found at $LANA_HOME" >&2
+    echo "Error: LANA CODE not found at $LANA_HOME" >&2
     echo "Set LANA_HOME to the installation directory." >&2
     exit 1
 fi

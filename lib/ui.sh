@@ -599,9 +599,9 @@ ui_banner() {
     model_short=$(basename "$(get_model_path "$model" 2>/dev/null)" .gguf 2>/dev/null) || model_short="$model"
 
     printf "\n"
-    printf "  ${C_BMAGENTA}╦  ╔═╗ ╔╗╔ ╔═╗${C_RESET}  ${C_BCYAN}╔═╗ ╔═╗ ╔╦╗ ╔═╗ ╦═╗${C_RESET}\n"
-    printf "  ${C_BMAGENTA}║  ╠═╣ ║║║ ╠═╣${C_RESET}  ${C_BCYAN}║   ║ ║  ║║ ║╣  ╠╦╝${C_RESET}\n"
-    printf "  ${C_BMAGENTA}╩═╝╩ ╩ ╝╚╝ ╩ ╩${C_RESET}  ${C_BCYAN}╚═╝ ╚═╝ ═╩╝ ╚═╝ ╩╚═${C_RESET}\n"
+    printf "  ${C_BMAGENTA}╦  ╔═╗ ╔╗╔ ╔═╗${C_RESET}  ${C_BCYAN}╔═╗ ╔═╗ ╔╦╗ ╔═╗${C_RESET}\n"
+    printf "  ${C_BMAGENTA}║  ╠═╣ ║║║ ╠═╣${C_RESET}  ${C_BCYAN}║   ║ ║  ║║ ║╣${C_RESET}\n"
+    printf "  ${C_BMAGENTA}╩═╝╩ ╩ ╝╚╝ ╩ ╩${C_RESET}  ${C_BCYAN}╚═╝ ╚═╝ ═╩╝ ╚═╝${C_RESET}\n"
     printf "\n"
 
     # Info line in a subtle box

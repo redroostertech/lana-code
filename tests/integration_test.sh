@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# LANA CODER — automated integration tests
+# LANA CODE — automated integration tests
 # Runs without a server — tests all logic that doesn't require an LLM.
 # Usage: bash tests/integration_test.sh
 #
@@ -65,7 +65,7 @@ ui_file_picker() { echo ""; }
 
 mkdir -p "$SESSION_DIR/turns" "$LANA_HISTORY_DIR"
 
-printf "\033[1m\nLANA CODER — Integration Tests\033[0m\n"
+printf "\033[1m\nLANA CODE — Integration Tests\033[0m\n"
 printf "\033[2mBash %s on %s\033[0m\n" "${BASH_VERSION}" "$(uname -sm)"
 
 # ══════════════════════════════════════════════════════

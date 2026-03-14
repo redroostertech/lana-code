@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# LANA CODER — Ink TUI launcher
+# LANA CODE — Ink TUI launcher
 # Starts llama-server (if needed), exports config, then launches Node TUI.
 # Usage: lana-code-ink [path]
 

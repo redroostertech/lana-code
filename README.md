@@ -1,8 +1,8 @@
-# LANA CODER
+# LANA CODE
 
 **Locally Autonomous Neural Agent** — a fully local agentic coding CLI with a rich terminal UI.
 
-LANA CODER is an interactive terminal assistant that uses local LLMs via llama.cpp to help with software engineering tasks: reading, writing, editing, and executing code with tool-use capabilities. No cloud APIs, no telemetry, everything runs on your machine.
+LANA CODE is an interactive terminal assistant that uses local LLMs via llama.cpp to help with software engineering tasks: reading, writing, editing, and executing code with tool-use capabilities. No cloud APIs, no telemetry, everything runs on your machine.
 
 Built with **TypeScript**, **React Ink** for the TUI, and **tree-sitter** for AST-powered code analysis.
 
@@ -21,7 +21,7 @@ lana-code
 ```
 ┌──────────┐     ┌──────────────────┐     ┌─────────────┐
 │          │────>│                  │────>│             │
-│ Terminal │     │  LANA CODER      │     │  llama.cpp  │
+│ Terminal │     │  LANA CODE      │     │  llama.cpp  │
 │  (you)   │<───│  (Ink/React TUI) │<───│  (local LLM)│
 │          │     │                  │     │             │
 └──────────┘     └────────┬─────────┘     └─────────────┘
@@ -170,7 +170,7 @@ Drag-and-drop also works — LANA auto-detects file paths pasted or dragged into
 
 ## Proxy Mode
 
-LANA CODER can route through **lana-proxy** for advanced model routing, caching, analytics, and request queuing:
+LANA CODE can route through **lana-proxy** for advanced model routing, caching, analytics, and request queuing:
 
 ```bash
 # Start lana-proxy (see lana-proxy README)
@@ -341,7 +341,7 @@ lib/
 
 ## The LANA Suite
 
-LANA CODER is part of the broader LANA ecosystem:
+LANA CODE is part of the broader LANA ecosystem:
 
 | Tool | Description |
 |---|---|

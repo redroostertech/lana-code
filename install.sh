@@ -295,7 +295,7 @@ else
         ok "PATH entry already in $SHELL_RC (reload your shell)"
     else
         echo '' >> "$SHELL_RC"
-        echo '# LANA CODER' >> "$SHELL_RC"
+        echo '# LANA CODE' >> "$SHELL_RC"
         echo 'export PATH="$HOME/bin:$PATH"' >> "$SHELL_RC"
         ok "Added $BIN_DIR to PATH in $SHELL_RC"
     fi
