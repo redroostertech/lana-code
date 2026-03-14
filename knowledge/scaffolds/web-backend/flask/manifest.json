@@ -1,0 +1,16 @@
+{
+  "name": "flask",
+  "display_name": "Flask",
+  "description": "Flask web application with app factory pattern",
+  "category": "web-backend",
+  "tags": ["python", "flask", "web", "api"],
+  "default_project_name": "my-flask-app",
+  "files": [
+    "requirements.txt",
+    "config.py",
+    "run.py",
+    ".env.example",
+    "app/__init__.py",
+    "app/routes.py"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "node-express",
+  "display_name": "Node.js + Express",
+  "description": "Node.js REST API with Express and TypeScript",
+  "category": "web-backend",
+  "tags": ["node", "express", "typescript", "rest", "api"],
+  "default_project_name": "my-express-app",
+  "files": [
+    "package.json",
+    "tsconfig.json",
+    "nodemon.json",
+    ".env.example",
+    "src/index.ts",
+    "src/routes/index.ts"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "node-cli",
+  "display_name": "Node.js CLI (Commander)",
+  "description": "TypeScript Node.js command-line application using Commander with subcommands",
+  "category": "cli",
+  "tags": ["node", "typescript", "commander", "cli"],
+  "default_project_name": "my-cli",
+  "files": [
+    "package.json",
+    "tsconfig.json",
+    "src/index.ts",
+    "src/commands/init.ts"
+  ]
+}

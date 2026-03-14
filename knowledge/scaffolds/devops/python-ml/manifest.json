@@ -1,0 +1,17 @@
+{
+  "name": "python-ml",
+  "display_name": "Python ML Project",
+  "description": "Machine learning project with PyTorch, training pipeline, evaluation, and experiment configuration",
+  "category": "devops",
+  "tags": ["python", "pytorch", "machine-learning", "deep-learning", "training", "ml"],
+  "default_project_name": "my-ml-project",
+  "files": [
+    "pyproject.toml",
+    "src/model.py",
+    "src/dataset.py",
+    "src/train.py",
+    "src/evaluate.py",
+    "configs/default.yaml",
+    "notebooks/exploration.ipynb"
+  ]
+}

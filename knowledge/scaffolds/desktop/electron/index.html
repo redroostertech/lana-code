@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'">
+  <title>My Electron App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>My Electron App</h1>
+      <p id="version"></p>
+    </header>
+    <main>
+      <section class="card">
+        <h2>Welcome</h2>
+        <p>Edit <code>renderer.js</code> and <code>index.html</code> to get started.</p>
+      </section>
+      <section class="card">
+        <h2>IPC Demo</h2>
+        <input type="text" id="ping-input" placeholder="Type a message..." />
+        <button id="ping-btn">Ping Main Process</button>
+        <p id="ping-result"></p>
+      </section>
+    </main>
+  </div>
+  <script src="renderer.js"></script>
+</body>
+</html>

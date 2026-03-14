@@ -1,0 +1,14 @@
+{
+  "name": "bash-project",
+  "display_name": "Bash CLI Project",
+  "description": "Structured bash command-line project with sourced libraries",
+  "category": "cli",
+  "tags": ["bash", "shell", "cli"],
+  "default_project_name": "my-cli",
+  "files": [
+    "bin/mycli",
+    "lib/utils.sh",
+    "lib/commands.sh",
+    "install.sh"
+  ]
+}

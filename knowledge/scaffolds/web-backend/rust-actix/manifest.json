@@ -1,0 +1,14 @@
+{
+  "name": "rust-actix",
+  "display_name": "Rust Actix-web",
+  "description": "Rust web server with Actix-web framework, JSON handlers and serde models",
+  "category": "web-backend",
+  "tags": ["rust", "actix-web", "rest-api", "async"],
+  "default_project_name": "my-app",
+  "files": [
+    "Cargo.toml",
+    "src/main.rs",
+    "src/handlers.rs",
+    "src/models.rs"
+  ]
+}

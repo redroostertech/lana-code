@@ -1,0 +1,18 @@
+{
+  "name": "aspnet-core",
+  "display_name": "ASP.NET Core 8 Web API",
+  "description": "ASP.NET Core 8 Web API with Swagger/OpenAPI and controller pattern",
+  "category": "web-backend",
+  "tags": ["csharp", "dotnet", "aspnet-core", "rest-api", "swagger"],
+  "default_project_name": "MyApp",
+  "files": [
+    "MyApp.csproj",
+    "MyApp.sln",
+    "Program.cs",
+    "Properties/launchSettings.json",
+    "appsettings.json",
+    "appsettings.Development.json",
+    "Controllers/WeatherForecastController.cs",
+    "Models/WeatherForecast.cs"
+  ]
+}

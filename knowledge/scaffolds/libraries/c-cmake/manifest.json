@@ -1,0 +1,15 @@
+{
+  "name": "c-cmake",
+  "display_name": "C/CMake Library",
+  "description": "C library with CMake build system, public headers, and test target",
+  "category": "libraries",
+  "tags": ["c", "cmake", "library"],
+  "default_project_name": "my-lib",
+  "files": [
+    "CMakeLists.txt",
+    "include/mylib/mylib.h",
+    "src/mylib.c",
+    "tests/CMakeLists.txt",
+    "tests/test_mylib.c"
+  ]
+}

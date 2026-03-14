@@ -1,0 +1,22 @@
+{
+  "name": "angular",
+  "display_name": "Angular",
+  "description": "Angular 17+ with standalone components and TypeScript",
+  "category": "web-frontend",
+  "tags": ["angular", "typescript", "spa", "standalone"],
+  "default_project_name": "my-angular-app",
+  "files": [
+    "package.json",
+    "angular.json",
+    "tsconfig.json",
+    "tsconfig.app.json",
+    "src/main.ts",
+    "src/app/app.component.ts",
+    "src/app/app.component.html",
+    "src/app/app.component.css",
+    "src/app/app.config.ts",
+    "src/app/app.routes.ts",
+    "src/index.html",
+    "src/styles.css"
+  ]
+}

@@ -1,0 +1,20 @@
+/**
+ * Adds two numbers together.
+ *
+ * @param a - The first number
+ * @param b - The second number
+ * @returns The sum of a and b
+ */
+export function add(a: number, b: number): number {
+  return a + b
+}
+
+/**
+ * Creates a greeting message.
+ *
+ * @param name - The name to greet
+ * @returns A greeting string
+ */
+export function greet(name: string): string {
+  return `Hello, ${name}!`
+}

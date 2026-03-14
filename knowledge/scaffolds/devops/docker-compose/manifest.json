@@ -1,0 +1,16 @@
+{
+  "name": "docker-compose",
+  "display_name": "Docker Compose Multi-Service",
+  "description": "Multi-service Docker Compose setup with web app, PostgreSQL, Redis, and Nginx reverse proxy",
+  "category": "devops",
+  "tags": ["docker", "docker-compose", "postgres", "redis", "nginx", "node"],
+  "default_project_name": "my-docker-app",
+  "files": [
+    "docker-compose.yml",
+    "Dockerfile",
+    ".dockerignore",
+    ".env.example",
+    "nginx/nginx.conf",
+    "nginx/Dockerfile"
+  ]
+}

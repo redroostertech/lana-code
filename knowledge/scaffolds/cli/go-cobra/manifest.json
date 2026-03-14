@@ -1,0 +1,14 @@
+{
+  "name": "go-cobra",
+  "display_name": "Go CLI (Cobra)",
+  "description": "Go command-line application using Cobra with subcommands",
+  "category": "cli",
+  "tags": ["go", "cobra", "cli"],
+  "default_project_name": "my-cli",
+  "files": [
+    "go.mod",
+    "main.go",
+    "cmd/root.go",
+    "cmd/version.go"
+  ]
+}

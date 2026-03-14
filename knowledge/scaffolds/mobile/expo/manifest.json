@@ -1,0 +1,15 @@
+{
+  "name": "expo",
+  "display_name": "Expo App",
+  "description": "Expo managed workflow React Native app with TypeScript",
+  "category": "mobile",
+  "tags": ["expo", "react-native", "typescript", "cross-platform", "mobile"],
+  "default_project_name": "my-app",
+  "files": [
+    "package.json",
+    "app.json",
+    "tsconfig.json",
+    "babel.config.js",
+    "App.tsx"
+  ]
+}

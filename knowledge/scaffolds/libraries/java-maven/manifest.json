@@ -1,0 +1,13 @@
+{
+  "name": "java-maven",
+  "display_name": "Java Maven Library",
+  "description": "Java library with Maven build, JUnit 5 tests, and proper POM coordinates",
+  "category": "libraries",
+  "tags": ["java", "maven", "library", "junit"],
+  "default_project_name": "my-lib",
+  "files": [
+    "pom.xml",
+    "src/main/java/com/example/mylib/MyLib.java",
+    "src/test/java/com/example/mylib/MyLibTest.java"
+  ]
+}

@@ -1,0 +1,8 @@
+## Tools Reference
+Files: read_file, write_file, edit_file, file_tree, undo, batch_edit, diff_apply
+Shell: bash, run_background
+Search: grep_search, glob_find, search_index, scaffold_search
+Intelligence: tree_parse, lsp_query, context_compress, web_fetch
+Project: project_detect, memory, git_smart, task_plan, test_run
+Agent: subagent (type=research|plan|execute), recall_turn
+Control: task_complete — call when done

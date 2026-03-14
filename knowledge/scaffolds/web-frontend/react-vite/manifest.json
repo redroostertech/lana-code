@@ -1,0 +1,20 @@
+{
+  "name": "react-vite",
+  "display_name": "React + Vite",
+  "description": "React 18 with TypeScript and Vite bundler",
+  "category": "web-frontend",
+  "tags": ["react", "typescript", "vite", "spa"],
+  "default_project_name": "my-react-app",
+  "files": [
+    "package.json",
+    "vite.config.ts",
+    "tsconfig.json",
+    "tsconfig.node.json",
+    "index.html",
+    "src/main.tsx",
+    "src/App.tsx",
+    "src/App.css",
+    "src/index.css",
+    "src/vite-env.d.ts"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "astro",
+  "display_name": "Astro",
+  "description": "Astro static site with components and layouts",
+  "category": "web-frontend",
+  "tags": ["astro", "static-site", "typescript", "content"],
+  "default_project_name": "my-astro-site",
+  "files": [
+    "package.json",
+    "astro.config.mjs",
+    "tsconfig.json",
+    "src/pages/index.astro",
+    "src/layouts/Layout.astro",
+    "src/components/Card.astro",
+    "public/favicon.svg"
+  ]
+}

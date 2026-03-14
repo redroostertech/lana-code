@@ -1,0 +1,20 @@
+{
+  "name": "android-java",
+  "display_name": "Android Java App",
+  "description": "Android app using Java with XML layouts and Gradle Groovy DSL",
+  "category": "mobile",
+  "tags": ["android", "java", "xml", "gradle"],
+  "default_project_name": "MyApp",
+  "files": [
+    "build.gradle",
+    "app/build.gradle",
+    "settings.gradle",
+    "gradle.properties",
+    "gradle/wrapper/gradle-wrapper.properties",
+    "app/src/main/AndroidManifest.xml",
+    "app/src/main/java/com/example/myapp/MainActivity.java",
+    "app/src/main/res/layout/activity_main.xml",
+    "app/src/main/res/values/strings.xml",
+    "app/src/main/res/values/themes.xml"
+  ]
+}

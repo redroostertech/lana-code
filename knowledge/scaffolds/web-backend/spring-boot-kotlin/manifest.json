@@ -1,0 +1,17 @@
+{
+  "name": "spring-boot-kotlin",
+  "display_name": "Spring Boot 3 (Kotlin)",
+  "description": "Spring Boot 3 REST API with Kotlin, Gradle build",
+  "category": "web-backend",
+  "tags": ["kotlin", "spring", "spring-boot", "rest-api", "gradle"],
+  "default_project_name": "my-app",
+  "files": [
+    "build.gradle.kts",
+    "settings.gradle.kts",
+    "gradle.properties",
+    "src/main/kotlin/com/example/myapp/MyAppApplication.kt",
+    "src/main/kotlin/com/example/myapp/controller/HelloController.kt",
+    "src/main/resources/application.properties",
+    "gradle/wrapper/gradle-wrapper.properties"
+  ]
+}

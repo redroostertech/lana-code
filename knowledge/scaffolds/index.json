@@ -1,0 +1,71 @@
+{
+  "version": "1.0",
+  "description": "LANA CODER scaffold knowledge base — reference implementations for project creation",
+  "usage": "When a user asks to create/initialize a project, find the matching scaffold, read its files, and adapt them to the user's requirements (project name, bundle ID, etc.)",
+  "categories": {
+    "mobile": {
+      "ios-swiftui": "iOS app using SwiftUI lifecycle with Xcode project",
+      "ios-uikit": "iOS app using UIKit with storyboard and Xcode project",
+      "android-kotlin": "Android app using Kotlin and Gradle (Kotlin DSL)",
+      "android-java": "Android app using Java and Gradle (Groovy DSL)",
+      "react-native": "React Native app with bare workflow",
+      "flutter": "Flutter cross-platform app (iOS + Android + Web)",
+      "expo": "Expo managed React Native app",
+      "macos-swiftui": "macOS app using SwiftUI with Xcode project"
+    },
+    "web-frontend": {
+      "react-vite": "React 18 + TypeScript + Vite",
+      "nextjs": "Next.js 14 App Router with TypeScript",
+      "vue-vite": "Vue 3 + TypeScript + Vite",
+      "nuxt": "Nuxt 3 full-stack Vue framework",
+      "angular": "Angular 17+ standalone components",
+      "sveltekit": "SvelteKit with TypeScript",
+      "astro": "Astro static site with content collections",
+      "html-css-js": "Plain HTML + CSS + JavaScript (no build tools)",
+      "typescript-lib": "TypeScript npm library with tsup bundling",
+      "remix": "Remix full-stack React framework"
+    },
+    "web-backend": {
+      "node-express": "Node.js + Express + TypeScript REST API",
+      "node-fastify": "Node.js + Fastify + TypeScript REST API",
+      "django": "Django 5 web application with Python",
+      "flask": "Flask web application with Python",
+      "fastapi": "FastAPI async web API with Python",
+      "rails": "Ruby on Rails 7 web application",
+      "spring-boot-java": "Spring Boot 3 REST API with Java",
+      "spring-boot-kotlin": "Spring Boot 3 REST API with Kotlin",
+      "go-http": "Go HTTP server using net/http and gorilla/mux",
+      "rust-actix": "Rust web server using Actix-web",
+      "laravel": "PHP Laravel 11 web application",
+      "aspnet-core": "ASP.NET Core 8 Web API with C#"
+    },
+    "cli": {
+      "python-click": "Python CLI using Click framework",
+      "rust-clap": "Rust CLI using Clap derive macros",
+      "go-cobra": "Go CLI using Cobra framework",
+      "node-cli": "Node.js CLI with commander.js",
+      "bash-project": "Structured bash script project",
+      "swift-cli": "Swift CLI using ArgumentParser"
+    },
+    "libraries": {
+      "python-package": "Python package with pyproject.toml (PEP 621)",
+      "rust-crate": "Rust library crate",
+      "go-module": "Go module library",
+      "ruby-gem": "Ruby gem with gemspec",
+      "java-maven": "Java library with Maven POM",
+      "c-cmake": "C/C++ library with CMake"
+    },
+    "desktop": {
+      "electron": "Electron app with HTML/JS frontend",
+      "tauri": "Tauri app (Rust backend + web frontend)",
+      "macos-cocoa": "macOS Cocoa app with AppKit (Xcode project)",
+      "qt-cpp": "Qt 6 C++ desktop application"
+    },
+    "devops": {
+      "docker-compose": "Multi-service Docker Compose setup",
+      "terraform-aws": "Terraform AWS infrastructure",
+      "github-action": "GitHub Action (composite or JavaScript)",
+      "python-ml": "Python ML project with PyTorch"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "rust-clap",
+  "display_name": "Rust CLI (Clap)",
+  "description": "Rust command-line application using Clap derive macros with subcommands",
+  "category": "cli",
+  "tags": ["rust", "clap", "cli"],
+  "default_project_name": "my-cli",
+  "files": [
+    "Cargo.toml",
+    "src/main.rs",
+    "src/commands.rs"
+  ]
+}

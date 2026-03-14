@@ -1,0 +1,19 @@
+{
+  "name": "tauri",
+  "display_name": "Tauri 2 Desktop App",
+  "description": "Lightweight desktop app with Tauri 2, Rust backend and web frontend",
+  "category": "desktop",
+  "tags": ["tauri", "rust", "javascript", "html", "css", "cross-platform", "desktop"],
+  "default_project_name": "my-tauri-app",
+  "files": [
+    "package.json",
+    "index.html",
+    "src/main.js",
+    "src/styles.css",
+    "src-tauri/Cargo.toml",
+    "src-tauri/tauri.conf.json",
+    "src-tauri/src/main.rs",
+    "src-tauri/src/lib.rs",
+    "src-tauri/capabilities/default.json"
+  ]
+}

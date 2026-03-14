@@ -1,0 +1,52 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
+
+      - name: Build dist
+        run: npm run build
+
+      - name: Get tag version
+        id: tag
+        run: echo "version=${GITHUB_REF#refs/tags/}" >> "$GITHUB_OUTPUT"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.tag.outputs.version }}
+          name: Release ${{ steps.tag.outputs.version }}
+          generate_release_notes: true
+          draft: false
+          prerelease: false
+
+      - name: Update major version tag
+        run: |
+          VERSION=${{ steps.tag.outputs.version }}
+          MAJOR=$(echo "$VERSION" | cut -d. -f1)
+          git tag -f "$MAJOR"
+          git push -f origin "$MAJOR"

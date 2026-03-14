@@ -1,0 +1,15 @@
+{
+  "name": "ruby-gem",
+  "display_name": "Ruby Gem",
+  "description": "Ruby gem library with gemspec, Bundler, and Rake",
+  "category": "libraries",
+  "tags": ["ruby", "gem", "library"],
+  "default_project_name": "my-lib",
+  "files": [
+    "mylib.gemspec",
+    "lib/mylib.rb",
+    "lib/mylib/version.rb",
+    "Gemfile",
+    "Rakefile"
+  ]
+}

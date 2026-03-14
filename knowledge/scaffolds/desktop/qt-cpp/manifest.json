@@ -1,0 +1,15 @@
+{
+  "name": "qt-cpp",
+  "display_name": "Qt 6 C++ Desktop App",
+  "description": "Cross-platform desktop app with Qt 6 Widgets and CMake build system",
+  "category": "desktop",
+  "tags": ["qt", "qt6", "cpp", "cmake", "cross-platform", "desktop", "widgets"],
+  "default_project_name": "my-qt-app",
+  "files": [
+    "CMakeLists.txt",
+    "main.cpp",
+    "mainwindow.h",
+    "mainwindow.cpp",
+    "mainwindow.ui"
+  ]
+}

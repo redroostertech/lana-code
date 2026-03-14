@@ -1,0 +1,19 @@
+{
+  "name": "ios-uikit",
+  "display_name": "iOS UIKit App",
+  "description": "iOS app using UIKit with storyboard and Xcode project",
+  "category": "mobile",
+  "tags": ["ios", "uikit", "swift", "apple", "xcode", "storyboard"],
+  "default_project_name": "MyApp",
+  "files": [
+    "MyApp.xcodeproj/project.pbxproj",
+    "MyApp/AppDelegate.swift",
+    "MyApp/SceneDelegate.swift",
+    "MyApp/ViewController.swift",
+    "MyApp/Main.storyboard",
+    "MyApp/LaunchScreen.storyboard",
+    "MyApp/Info.plist",
+    "MyApp/Assets.xcassets/Contents.json",
+    "MyApp/Assets.xcassets/AppIcon.appiconset/Contents.json"
+  ]
+}

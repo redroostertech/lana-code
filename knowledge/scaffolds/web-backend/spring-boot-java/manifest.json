@@ -1,0 +1,16 @@
+{
+  "name": "spring-boot-java",
+  "display_name": "Spring Boot 3 (Java)",
+  "description": "Spring Boot 3 REST API with Java 21, Maven build",
+  "category": "web-backend",
+  "tags": ["java", "spring", "spring-boot", "rest-api", "maven"],
+  "default_project_name": "my-app",
+  "files": [
+    "pom.xml",
+    "src/main/java/com/example/myapp/MyAppApplication.java",
+    "src/main/java/com/example/myapp/controller/HelloController.java",
+    "src/main/resources/application.properties",
+    ".mvn/wrapper/maven-wrapper.properties",
+    "mvnw"
+  ]
+}

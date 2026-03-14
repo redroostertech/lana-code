@@ -1,0 +1,18 @@
+{
+  "name": "macos-cocoa",
+  "display_name": "macOS Cocoa App",
+  "description": "Native macOS desktop app with AppKit, Swift, and Xcode project",
+  "category": "desktop",
+  "tags": ["macos", "cocoa", "appkit", "swift", "xcode", "native"],
+  "default_project_name": "MyApp",
+  "files": [
+    "MyApp.xcodeproj/project.pbxproj",
+    "MyApp/AppDelegate.swift",
+    "MyApp/ViewController.swift",
+    "MyApp/Main.storyboard",
+    "MyApp/Assets.xcassets/Contents.json",
+    "MyApp/Assets.xcassets/AppIcon.appiconset/Contents.json",
+    "MyApp/MyApp.entitlements",
+    "MyApp/Info.plist"
+  ]
+}

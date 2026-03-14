@@ -1,0 +1,15 @@
+{
+  "name": "go-http",
+  "display_name": "Go HTTP Server",
+  "description": "Go HTTP server with standard library, structured handlers and middleware",
+  "category": "web-backend",
+  "tags": ["go", "golang", "http", "rest-api"],
+  "default_project_name": "my-app",
+  "files": [
+    "go.mod",
+    "go.sum",
+    "main.go",
+    "handlers/handlers.go",
+    "middleware/logging.go"
+  ]
+}

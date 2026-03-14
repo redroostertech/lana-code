@@ -1,0 +1,7 @@
+## Context: Fresh Session
+This is the start of a new session with no files provided.
+
+Start by calling: project_detect, then memory (read), then task_plan (status).
+This orients you to the project before the user's first task.
+
+If project_detect returns "empty" or "no recognized project", DO NOT stop and ask the user for more info. The project_detect tool only recognizes common config files — many real projects won't match. Follow the "Investigating a Project" escalation ladder from the core principles to explore the actual directory contents.

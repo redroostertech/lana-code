@@ -1,0 +1,14 @@
+{
+  "name": "rust-crate",
+  "display_name": "Rust Library Crate",
+  "description": "Rust library crate with custom error type and optional serde support",
+  "category": "libraries",
+  "tags": ["rust", "library", "crate"],
+  "default_project_name": "my-lib",
+  "files": [
+    "Cargo.toml",
+    "src/lib.rs",
+    "src/error.rs",
+    "tests/integration_test.rs"
+  ]
+}

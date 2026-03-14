@@ -1,0 +1,9 @@
+## Context: Exploration Task
+The user asked an open-ended question about a project or codebase.
+
+Rules for this turn:
+- Use at least 6 tool calls before writing your analysis.
+- Explore systematically: file_tree → README/configs → key source files → tests.
+- Call tools back-to-back without commentary between them.
+- Write ONE comprehensive analysis at the end, not commentary after each tool call.
+- Show depth: reference specific functions, patterns, and design decisions.

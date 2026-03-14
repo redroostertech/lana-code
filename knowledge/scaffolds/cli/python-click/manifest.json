@@ -1,0 +1,15 @@
+{
+  "name": "python-click",
+  "display_name": "Python CLI (Click)",
+  "description": "Python command-line application using Click with subcommands",
+  "category": "cli",
+  "tags": ["python", "click", "cli"],
+  "default_project_name": "my-cli",
+  "files": [
+    "pyproject.toml",
+    "src/mycli/__init__.py",
+    "src/mycli/__main__.py",
+    "src/mycli/cli.py",
+    "src/mycli/commands.py"
+  ]
+}

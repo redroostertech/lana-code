@@ -1,0 +1,6 @@
+#!/bin/sh
+# Maven Wrapper startup script for UN*X systems.
+# See https://maven.apache.org/wrapper/ for full script.
+# This is a placeholder — download the full mvnw from https://start.spring.io or run: mvn wrapper:wrapper
+echo "Download the full Maven wrapper script from https://start.spring.io or run: mvn wrapper:wrapper"
+exit 1

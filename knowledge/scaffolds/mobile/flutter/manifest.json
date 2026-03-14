@@ -1,0 +1,14 @@
+{
+  "name": "flutter",
+  "display_name": "Flutter App",
+  "description": "Flutter cross-platform app with Material Design 3",
+  "category": "mobile",
+  "tags": ["flutter", "dart", "cross-platform", "material", "mobile"],
+  "default_project_name": "my_app",
+  "files": [
+    "pubspec.yaml",
+    "lib/main.dart",
+    "analysis_options.yaml",
+    ".metadata"
+  ]
+}

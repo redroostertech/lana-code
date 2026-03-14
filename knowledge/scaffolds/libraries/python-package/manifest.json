@@ -1,0 +1,16 @@
+{
+  "name": "python-package",
+  "display_name": "Python Package",
+  "description": "Python library package with pyproject.toml, src layout, and pytest tests",
+  "category": "libraries",
+  "tags": ["python", "package", "library", "pytest"],
+  "default_project_name": "my-lib",
+  "files": [
+    "pyproject.toml",
+    "src/mylib/__init__.py",
+    "src/mylib/core.py",
+    "tests/__init__.py",
+    "tests/test_core.py",
+    "LICENSE"
+  ]
+}

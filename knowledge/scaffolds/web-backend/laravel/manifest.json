@@ -1,0 +1,24 @@
+{
+  "name": "laravel",
+  "display_name": "Laravel 11",
+  "description": "PHP Laravel 11 web application with Eloquent ORM and API routes",
+  "category": "web-backend",
+  "tags": ["php", "laravel", "rest-api", "eloquent", "mvc"],
+  "default_project_name": "my-app",
+  "files": [
+    "composer.json",
+    "artisan",
+    ".env.example",
+    "config/app.php",
+    "config/database.php",
+    "routes/web.php",
+    "routes/api.php",
+    "app/Http/Controllers/Controller.php",
+    "app/Http/Kernel.php",
+    "app/Models/User.php",
+    "app/Providers/AppServiceProvider.php",
+    "bootstrap/app.php",
+    "public/index.php",
+    "resources/views/welcome.blade.php"
+  ]
+}

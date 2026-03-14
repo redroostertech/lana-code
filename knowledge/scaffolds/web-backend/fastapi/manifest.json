@@ -1,0 +1,17 @@
+{
+  "name": "fastapi",
+  "display_name": "FastAPI",
+  "description": "FastAPI async web API with Pydantic models",
+  "category": "web-backend",
+  "tags": ["python", "fastapi", "async", "api", "pydantic"],
+  "default_project_name": "my-fastapi-app",
+  "files": [
+    "requirements.txt",
+    "main.py",
+    ".env.example",
+    "app/__init__.py",
+    "app/models.py",
+    "app/routers/__init__.py",
+    "app/routers/items.py"
+  ]
+}

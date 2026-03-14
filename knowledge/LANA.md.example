@@ -1,0 +1,24 @@
+# Project Instructions for LANA
+
+## About This Project
+Brief description of what this project does.
+
+## Tech Stack
+- Language: TypeScript
+- Framework: React with Vite
+- Testing: Vitest
+- Linting: ESLint + Prettier
+
+## Conventions
+- Use functional components with hooks
+- Write tests for all new features
+- Follow existing code style
+
+## Build & Run
+- `npm run dev` — Start development server
+- `npm run build` — Production build
+- `npm test` — Run tests
+
+## Important Notes
+- Always run tests before committing
+- API keys are in .env (never commit)

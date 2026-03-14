@@ -1,0 +1,20 @@
+{
+  "name": "vue-vite",
+  "display_name": "Vue 3 + Vite",
+  "description": "Vue 3 with TypeScript and Vite bundler",
+  "category": "web-frontend",
+  "tags": ["vue", "typescript", "vite", "spa"],
+  "default_project_name": "my-vue-app",
+  "files": [
+    "package.json",
+    "vite.config.ts",
+    "tsconfig.json",
+    "tsconfig.node.json",
+    "index.html",
+    "src/main.ts",
+    "src/App.vue",
+    "src/components/HelloWorld.vue",
+    "src/vite-env.d.ts",
+    "env.d.ts"
+  ]
+}

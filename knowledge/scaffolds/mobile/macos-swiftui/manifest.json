@@ -1,0 +1,16 @@
+{
+  "name": "macos-swiftui",
+  "display_name": "macOS SwiftUI App",
+  "description": "macOS app using SwiftUI with Xcode project and app sandbox",
+  "category": "mobile",
+  "tags": ["macos", "swiftui", "swift", "apple", "xcode", "desktop"],
+  "default_project_name": "MyApp",
+  "files": [
+    "MyApp.xcodeproj/project.pbxproj",
+    "MyApp/MyAppApp.swift",
+    "MyApp/ContentView.swift",
+    "MyApp/Assets.xcassets/Contents.json",
+    "MyApp/Assets.xcassets/AppIcon.appiconset/Contents.json",
+    "MyApp/MyApp.entitlements"
+  ]
+}

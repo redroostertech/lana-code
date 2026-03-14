@@ -1,0 +1,15 @@
+{
+  "name": "typescript-lib",
+  "display_name": "TypeScript Library",
+  "description": "TypeScript npm library with tsup bundler",
+  "category": "web-frontend",
+  "tags": ["typescript", "library", "npm", "tsup", "package"],
+  "default_project_name": "my-lib",
+  "files": [
+    "package.json",
+    "tsconfig.json",
+    "tsup.config.ts",
+    "src/index.ts",
+    "LICENSE"
+  ]
+}

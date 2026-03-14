@@ -1,0 +1,15 @@
+{
+  "name": "github-action",
+  "display_name": "GitHub Action",
+  "description": "Custom GitHub Action with composite and JavaScript implementation, CI/CD workflows included",
+  "category": "devops",
+  "tags": ["github-actions", "ci", "cd", "javascript", "automation", "workflow"],
+  "default_project_name": "my-action",
+  "files": [
+    "action.yml",
+    ".github/workflows/ci.yml",
+    ".github/workflows/release.yml",
+    "src/index.js",
+    "package.json"
+  ]
+}

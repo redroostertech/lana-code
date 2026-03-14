@@ -1,0 +1,15 @@
+[package]
+name = "mylib"
+version = "0.1.0"
+edition = "2021"
+description = "A reusable Rust library"
+license = "MIT"
+readme = "README.md"
+
+[features]
+default = []
+serde = ["dep:serde"]
+
+[dependencies]
+serde = { version = "1", features = ["derive"], optional = true }
+thiserror = "1"

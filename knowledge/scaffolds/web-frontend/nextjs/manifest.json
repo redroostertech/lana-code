@@ -1,0 +1,17 @@
+{
+  "name": "nextjs",
+  "display_name": "Next.js App Router",
+  "description": "Next.js 14 with App Router and TypeScript",
+  "category": "web-frontend",
+  "tags": ["nextjs", "react", "typescript", "ssr", "app-router"],
+  "default_project_name": "my-nextjs-app",
+  "files": [
+    "package.json",
+    "next.config.mjs",
+    "tsconfig.json",
+    "app/layout.tsx",
+    "app/page.tsx",
+    "app/globals.css",
+    "public/.gitkeep"
+  ]
+}

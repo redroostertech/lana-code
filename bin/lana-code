@@ -1,0 +1,359 @@
+#!/usr/bin/env bash
+# LANA CODER — Locally Autonomous Neural Agent
+# Part of the LANA suite. CLI entry point.
+# Usage: lana-code [options] [path]
+
+set -euo pipefail
+
+LANA_HOME="${LANA_HOME:-$HOME/Desktop/local-coder}"
+LANA_MAIN="$LANA_HOME/lana-coder.sh"
+
+# ── Version ───────────────────────────────────────────
+LANA_VERSION="0.3.0"
+
+# ── Usage ─────────────────────────────────────────────
+usage() {
+    cat <<'EOF'
+
+  LANA CODER — Locally Autonomous Neural Agent
+  Part of the LANA suite
+
+  Usage:
+    lana-code                     Start interactive session in current directory
+    lana-code <path>              Start session in specified directory
+    lana-code -m <name>           Start with a specific model (qwen2.5, qwen3)
+    lana-code --index [path]      Index a project (symbols, deps, LLM summaries)
+    lana-code --search <query>    Search the project index
+    lana-code --history [query]   List past sessions (optional search)
+    lana-code --continue [id]     Resume a previous session or fork
+    lana-code --yolo               Auto-accept all tool calls
+    lana-code --auto               Auto-accept file edits, confirm bash
+    lana-code -a <mode>            Set accept mode (confirm, auto-edit, yolo)
+    lana-code --status            Show server and model status
+    lana-code --models            List available models
+    lana-code --version           Show version
+    lana-code --help              Show this help
+
+  Examples:
+    lana-code                     Chat in current project
+    lana-code ~/myapp             Open a project
+    lana-code -m qwen3            Use Qwen3 model
+    lana-code --yolo              Auto-accept everything
+    lana-code --index             Index current directory
+    lana-code --search "auth"     Find auth-related code
+    lana-code --history           Show recent sessions
+    lana-code --history "auth"    Search past sessions
+
+  In-session commands:
+    /help                    Show all commands
+    /model [name]            Switch model
+    /load [path]             Load project into context
+    /index [path]            Index project
+    /search <query>          Search index
+    /cd <path>               Change working directory
+    /history [query]          List past sessions
+    /recall <id|search>      Load previous session context
+    /compact                 Manually compact conversation
+    /clear                   Clear conversation
+    /status                  Show server and model status
+    /memory                  Show session memory/context
+    @filepath                Include file in your message
+    /quit                    Exit
+
+EOF
+}
+
+# ── Parse arguments ───────────────────────────────────
+ACTION="interactive"
+TARGET_DIR=""
+MODEL_OVERRIDE=""
+QUERY=""
+
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        --help|-h)
+            usage
+            exit 0
+            ;;
+        --version|-v)
+            echo "lana-code $LANA_VERSION"
+            exit 0
+            ;;
+        --model|-m)
+            shift
+            MODEL_OVERRIDE="${1:-}"
+            shift
+            ;;
+        --index|-i)
+            ACTION="index"
+            shift
+            if [[ $# -gt 0 && "$1" != --* ]]; then
+                TARGET_DIR="$1"
+                shift
+            fi
+            ;;
+        --search|-s)
+            ACTION="search"
+            shift
+            QUERY="${1:-}"
+            [[ $# -gt 0 ]] && shift
+            ;;
+        --history)
+            ACTION="history"
+            shift
+            if [[ $# -gt 0 && "$1" != --* ]]; then
+                QUERY="$1"
+                shift
+            fi
+            ;;
+        --status)
+            ACTION="status"
+            shift
+            ;;
+        --models)
+            ACTION="models"
+            shift
+            ;;
+        --accept|-a)
+            shift
+            export LANA_ACCEPT="${1:-confirm}"
+            shift
+            ;;
+        --yolo)
+            export LANA_ACCEPT="yolo"
+            shift
+            ;;
+        --auto)
+            export LANA_ACCEPT="auto-edit"
+            shift
+            ;;
+        --continue|-c)
+            ACTION="continue"
+            shift
+            if [[ $# -gt 0 && "$1" != --* ]]; then
+                QUERY="$1"
+                shift
+            fi
+            ;;
+        -*)
+            echo "Error: unknown option: $1" >&2
+            echo "Run 'lana-code --help' for usage." >&2
+            exit 1
+            ;;
+        *)
+            TARGET_DIR="$1"
+            shift
+            ;;
+    esac
+done
+
+# ── Resolve paths ─────────────────────────────────────
+if [[ -n "$TARGET_DIR" ]]; then
+    if [[ ! -d "$TARGET_DIR" ]]; then
+        echo "Error: not a directory: $TARGET_DIR" >&2
+        exit 1
+    fi
+    TARGET_DIR="$(cd "$TARGET_DIR" && pwd)"
+fi
+
+# ── Validate LANA installation ────────────────────────
+if [[ ! -f "$LANA_MAIN" ]]; then
+    echo "Error: LANA CODER not found at $LANA_HOME" >&2
+    echo "Set LANA_HOME to the installation directory." >&2
+    exit 1
+fi
+
+# ── Source config for non-interactive actions ─────────
+source "$LANA_HOME/config.sh"
+source "$LANA_HOME/lib/ui.sh"
+
+# ── Helper functions ──────────────────────────────────
+_show_status() {
+    printf "${C_BOLD}${C_MAGENTA}LANA${C_RESET} ${C_BOLD}${C_CYAN}CODER${C_RESET} v${LANA_VERSION}\n\n"
+
+    # Server status
+    local srv_status
+    srv_status=$(curl -s -o /dev/null -w "%{http_code}" "http://${SERVER_HOST}:${SERVER_PORT}/health" --max-time 2 2>/dev/null || true)
+    if [[ "$srv_status" == "200" ]]; then
+        printf "  Server:  ${C_GREEN}running${C_RESET} (port ${SERVER_PORT})\n"
+    else
+        printf "  Server:  ${C_DIM}stopped${C_RESET}\n"
+    fi
+
+    # Models
+    printf "\n  Models:\n"
+    for name in $MODEL_NAMES; do
+        local mp sz
+        mp=$(get_model_path "$name")
+        if [[ -f "$mp" ]]; then
+            sz=$(ls -lh "$mp" | awk '{print $5}')
+            printf "    ${C_GREEN}%-10s${C_RESET} %s (%s)\n" "$name" "$(basename "$mp")" "$sz"
+        else
+            printf "    ${C_RED}%-10s${C_RESET} (not downloaded)\n" "$name"
+        fi
+    done
+
+    # llama-server binary
+    printf "\n  Binary:  "
+    if [[ -x "$LLAMA_SERVER" ]]; then
+        printf "${C_GREEN}%s${C_RESET}\n" "$LLAMA_SERVER"
+    else
+        printf "${C_RED}not found${C_RESET}\n"
+    fi
+    printf "\n"
+}
+
+_show_models() {
+    printf "${C_BOLD}Available models:${C_RESET}\n\n"
+    for name in $MODEL_NAMES; do
+        local mp
+        mp=$(get_model_path "$name")
+        if [[ -f "$mp" ]]; then
+            local sz
+            sz=$(ls -lh "$mp" | awk '{print $5}')
+            printf "  ${C_GREEN}%-10s${C_RESET} %s  %s\n" "$name" "$(basename "$mp")" "$sz"
+        else
+            printf "  ${C_RED}%-10s${C_RESET} (not downloaded)\n" "$name"
+        fi
+    done
+    printf "\n"
+}
+
+# ── Execute action ────────────────────────────────────
+case "$ACTION" in
+    interactive)
+        if [[ -n "$TARGET_DIR" ]]; then
+            cd "$TARGET_DIR"
+        fi
+        if [[ -n "$MODEL_OVERRIDE" ]]; then
+            export LANA_MODEL="$MODEL_OVERRIDE"
+        fi
+        # Launch Ink TUI — set SESSION_DIR before setup.sh (it uses it for logs)
+        export SESSION_DIR="/tmp/lana-$$"
+        mkdir -p "$SESSION_DIR"
+        export LANA_WORK_DIR="$(pwd)"
+
+        CURRENT_MODEL="${LANA_MODEL:-$DEFAULT_MODEL}"
+        export CURRENT_MODEL
+
+        source "$LANA_HOME/lib/api.sh"
+        source "$LANA_HOME/setup.sh"
+
+        # Start llama-server (direct mode only)
+        if [[ "$USE_PROXY" != "true" ]]; then
+            if api_health_check 2>/dev/null; then
+                ui_success "Server already running"
+            else
+                local_model_path=$(get_model_path "$CURRENT_MODEL")
+                if [[ -z "$local_model_path" || ! -f "$local_model_path" ]]; then
+                    ui_error "Model not found for: $CURRENT_MODEL"
+                    exit 1
+                fi
+                server_start "$local_model_path"
+            fi
+        fi
+
+        # Export all config as env vars for Node
+        export LANA_DIR="$LANA_HOME"
+        export API_URL
+        export LANA_API_MODEL="$API_MODEL"
+        export USE_PROXY
+        export CONTEXT_SIZE
+        export TEMPERATURE
+        export MAX_TOKENS
+        export FREQUENCY_PENALTY
+        export PRESENCE_PENALTY
+        export AUTO_CONFIRM_READ
+        export MAX_TOOL_LOOPS
+        export ACCEPT_MODE="${LANA_ACCEPT:-$ACCEPT_MODE}"
+        export FILE_SIZE_LIMIT
+        export LANA_HISTORY_DIR
+        export LANA_INPUT_HISTORY
+        export LANA_INPUT_HISTORY_SIZE
+        export LANA_DEBUG
+        export MODEL_NAMES
+        export COMPACT_TRIGGER_PCT
+        export COMPACT_KEEP_TURNS
+        export COMPACT_EMERGENCY_PCT
+        export COMPACT_SUMMARY_MAX_TOKENS
+        export COMPACT_TEMPERATURE
+        export TOOL_RESULT_MAX_LINES
+        export TOOL_RESULT_KEEP_HEAD
+        export TOOL_RESULT_KEEP_TAIL
+        export COLD_STORAGE_ENABLED
+
+        # Cleanup on exit
+        _ink_cleanup() {
+            if [[ "$USE_PROXY" != "true" ]]; then
+                server_stop 2>/dev/null || true
+            fi
+            rm -rf "$SESSION_DIR" 2>/dev/null || true
+        }
+        trap _ink_cleanup EXIT INT TERM
+
+        exec npx tsx "$LANA_HOME/src/index.tsx"
+        ;;
+
+    continue)
+        export LANA_CONTINUE="${QUERY:-latest}"
+        if [[ -n "$MODEL_OVERRIDE" ]]; then
+            export LANA_MODEL="$MODEL_OVERRIDE"
+        fi
+        exec /bin/bash "$LANA_MAIN"
+        ;;
+
+    index)
+        dir="${TARGET_DIR:-$(pwd)}"
+        source "$LANA_HOME/lib/state.sh"
+        source "$LANA_HOME/lib/api.sh"
+        source "$LANA_HOME/lib/tools.sh"
+        source "$LANA_HOME/lib/tools_awareness.sh"
+        source "$LANA_HOME/lib/tools_execution.sh"
+        source "$LANA_HOME/lib/tools_intelligence.sh"
+        source "$LANA_HOME/lib/tools_fileops.sh"
+        source "$LANA_HOME/lib/history.sh"
+        source "$LANA_HOME/lib/project.sh"
+        source "$LANA_HOME/setup.sh"
+        WORK_DIR="$dir"
+        SESSION_DIR="/tmp/lana-idx-$$"
+        mkdir -p "$SESSION_DIR"
+        project_index "$dir"
+        rm -rf "$SESSION_DIR"
+        ;;
+
+    search)
+        if [[ -z "$QUERY" ]]; then
+            echo "Usage: lana-code --search <query>" >&2
+            exit 1
+        fi
+        dir="${TARGET_DIR:-$(pwd)}"
+        source "$LANA_HOME/lib/state.sh"
+        source "$LANA_HOME/lib/api.sh"
+        source "$LANA_HOME/lib/tools.sh"
+        source "$LANA_HOME/lib/tools_awareness.sh"
+        source "$LANA_HOME/lib/tools_execution.sh"
+        source "$LANA_HOME/lib/tools_intelligence.sh"
+        source "$LANA_HOME/lib/tools_fileops.sh"
+        source "$LANA_HOME/lib/history.sh"
+        source "$LANA_HOME/lib/project.sh"
+        source "$LANA_HOME/setup.sh"
+        WORK_DIR="$dir"
+        SESSION_DIR="/tmp/lana-search-$$"
+        mkdir -p "$SESSION_DIR"
+        project_index_search "$dir" "$QUERY"
+        rm -rf "$SESSION_DIR"
+        ;;
+
+    history)
+        source "$LANA_HOME/lib/history.sh"
+        history_list "$QUERY"
+        ;;
+
+    status)
+        _show_status
+        ;;
+
+    models)
+        _show_models
+        ;;
+esac

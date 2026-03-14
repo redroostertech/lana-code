@@ -1,0 +1,26 @@
+{
+  "name": "rails",
+  "display_name": "Ruby on Rails",
+  "description": "Ruby on Rails 7 web application",
+  "category": "web-backend",
+  "tags": ["ruby", "rails", "web", "mvc"],
+  "default_project_name": "my-rails-app",
+  "files": [
+    "Gemfile",
+    "Rakefile",
+    "config.ru",
+    "config/boot.rb",
+    "config/environment.rb",
+    "config/application.rb",
+    "config/routes.rb",
+    "config/environments/development.rb",
+    "config/environments/production.rb",
+    "config/database.yml",
+    "config/puma.rb",
+    "app/controllers/application_controller.rb",
+    "app/controllers/home_controller.rb",
+    "app/views/layouts/application.html.erb",
+    "app/views/home/index.html.erb",
+    "bin/rails"
+  ]
+}

@@ -1,0 +1,92 @@
+#!/usr/bin/env bash
+# LANA CODER — Ink TUI launcher
+# Starts llama-server (if needed), exports config, then launches Node TUI.
+# Usage: lana-code-ink [path]
+
+set -euo pipefail
+
+LANA_HOME="${LANA_HOME:-$HOME/Desktop/local-coder}"
+
+# ── Source configuration ─────────────────────────────
+source "$LANA_HOME/config.sh"
+source "$LANA_HOME/lib/ui.sh"
+source "$LANA_HOME/lib/api.sh"
+source "$LANA_HOME/setup.sh"
+
+# ── Session directory ────────────────────────────────
+export SESSION_DIR="/tmp/lana-$$"
+mkdir -p "$SESSION_DIR"
+
+# ── Set working directory ────────────────────────────
+if [[ -n "${1:-}" && -d "$1" ]]; then
+    cd "$1"
+fi
+export LANA_WORK_DIR="$(pwd)"
+
+# ── Model selection ──────────────────────────────────
+CURRENT_MODEL="${LANA_MODEL:-$DEFAULT_MODEL}"
+export CURRENT_MODEL
+
+# ── Start llama-server (direct mode only) ────────────
+if [[ "$USE_PROXY" != "true" ]]; then
+    # Check if server is already running
+    if api_health_check 2>/dev/null; then
+        ui_success "Server already running"
+    else
+        local_model_path=$(get_model_path "$CURRENT_MODEL")
+        if [[ -z "$local_model_path" || ! -f "$local_model_path" ]]; then
+            ui_error "Model not found for: $CURRENT_MODEL"
+            exit 1
+        fi
+        server_start "$local_model_path"
+    fi
+fi
+
+# ── Export all config as env vars for Node ───────────
+export CHAT_MODEL_PATH="$(get_model_path "$CURRENT_MODEL")"
+export LANA_DIR="$LANA_HOME"
+export API_URL
+export LANA_API_MODEL="$API_MODEL"
+export USE_PROXY
+export CONTEXT_SIZE
+export TEMPERATURE
+export MAX_TOKENS
+export FREQUENCY_PENALTY
+export PRESENCE_PENALTY
+export AUTO_CONFIRM_READ
+export MAX_TOOL_LOOPS
+export ACCEPT_MODE="${LANA_ACCEPT:-$ACCEPT_MODE}"
+export FILE_SIZE_LIMIT
+export LANA_HISTORY_DIR
+export LANA_INPUT_HISTORY
+export LANA_INPUT_HISTORY_SIZE
+export LANA_DEBUG
+export MODEL_NAMES
+export COMPACT_TRIGGER_PCT
+export COMPACT_KEEP_TURNS
+export COMPACT_EMERGENCY_PCT
+export COMPACT_SUMMARY_MAX_TOKENS
+export COMPACT_TEMPERATURE
+export TOOL_RESULT_MAX_LINES
+export TOOL_RESULT_KEEP_HEAD
+export TOOL_RESULT_KEEP_TAIL
+export COLD_STORAGE_ENABLED
+export EMBEDDING_MODEL_PATH
+export EMBEDDING_MODEL_NAME
+export EMBEDDING_PORT
+export LLAMA_SERVER
+export SERVER_PORT="${SERVER_PORT:-8080}"
+export GPU_LAYERS="${GPU_LAYERS:-99}"
+export THREADS="${THREADS:-10}"
+
+# ── Cleanup on exit ──────────────────────────────────
+cleanup() {
+    if [[ "$USE_PROXY" != "true" ]]; then
+        server_stop 2>/dev/null || true
+    fi
+    rm -rf "$SESSION_DIR" 2>/dev/null || true
+}
+trap cleanup EXIT INT TERM
+
+# ── Launch Node TUI ──────────────────────────────────
+exec npx tsx "$LANA_HOME/src/index.tsx"

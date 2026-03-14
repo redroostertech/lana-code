@@ -1,0 +1,61 @@
+name: 'My Custom Action'
+description: 'A composite GitHub Action that performs automated checks and reporting'
+author: 'Your Name'
+
+branding:
+  icon: 'check-circle'
+  color: 'green'
+
+inputs:
+  token:
+    description: 'GitHub token for API access'
+    required: true
+    default: ${{ github.token }}
+  mode:
+    description: 'Operation mode: check, report, or both'
+    required: false
+    default: 'both'
+  config-path:
+    description: 'Path to configuration file'
+    required: false
+    default: '.github/action-config.yml'
+  fail-on-error:
+    description: 'Whether to fail the workflow on errors'
+    required: false
+    default: 'true'
+
+outputs:
+  result:
+    description: 'JSON result of the action'
+    value: ${{ steps.run.outputs.result }}
+  status:
+    description: 'Status of the action (success, warning, failure)'
+    value: ${{ steps.run.outputs.status }}
+  summary:
+    description: 'Human-readable summary'
+    value: ${{ steps.run.outputs.summary }}
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: Install dependencies
+      shell: bash
+      run: |
+        cd ${{ github.action_path }}
+        npm ci --production
+
+    - name: Run action
+      id: run
+      shell: bash
+      env:
+        INPUT_TOKEN: ${{ inputs.token }}
+        INPUT_MODE: ${{ inputs.mode }}
+        INPUT_CONFIG_PATH: ${{ inputs.config-path }}
+        INPUT_FAIL_ON_ERROR: ${{ inputs.fail-on-error }}
+        GITHUB_ACTION_PATH: ${{ github.action_path }}
+      run: node ${{ github.action_path }}/src/index.js

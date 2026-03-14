@@ -1,0 +1,22 @@
+# Project
+project_name = "myapp"
+environment  = "dev"
+
+# AWS
+aws_region         = "us-east-1"
+availability_zones = ["us-east-1a", "us-east-1b"]
+
+# Networking
+vpc_cidr = "10.0.0.0/16"
+
+# ECS
+container_image = "nginx:latest"
+container_port  = 80
+task_cpu        = 256
+task_memory     = 512
+desired_count   = 2
+
+# Tags
+tags = {
+  Team = "engineering"
+}

@@ -1,0 +1,18 @@
+{
+  "name": "react-native",
+  "display_name": "React Native App",
+  "description": "React Native bare workflow app with TypeScript",
+  "category": "mobile",
+  "tags": ["react-native", "typescript", "javascript", "cross-platform", "mobile"],
+  "default_project_name": "MyApp",
+  "files": [
+    "package.json",
+    "metro.config.js",
+    "babel.config.js",
+    "tsconfig.json",
+    "index.js",
+    "App.tsx",
+    "app.json",
+    ".watchmanconfig"
+  ]
+}

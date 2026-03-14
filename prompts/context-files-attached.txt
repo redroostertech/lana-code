@@ -1,0 +1,9 @@
+## Context: Files Attached
+The user has provided files via @file references. Their message contains `<file path="...">` blocks with full contents.
+
+Rules for this turn:
+- Do NOT call project_detect, memory, or other session-startup tools.
+- Read and analyze the provided file content FIRST — it is already in the message.
+- Focus specifically on what the user asked about the attached files.
+- Only use tools to explore beyond the provided files if needed for context.
+- Be direct and specific in your analysis. Reference line numbers and specific code.

@@ -1,0 +1,34 @@
+{
+  "name": "my-electron-app",
+  "version": "1.0.0",
+  "description": "An Electron desktop application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --mac --win --linux",
+    "build:mac": "electron-builder --mac",
+    "build:win": "electron-builder --win",
+    "build:linux": "electron-builder --linux"
+  },
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^25.0.0"
+  },
+  "build": {
+    "appId": "com.example.my-electron-app",
+    "productName": "My Electron App",
+    "directories": {
+      "output": "dist"
+    },
+    "mac": {
+      "category": "public.app-category.utilities",
+      "target": ["dmg", "zip"]
+    },
+    "win": {
+      "target": ["nsis", "zip"]
+    },
+    "linux": {
+      "target": ["AppImage", "deb"]
+    }
+  }
+}

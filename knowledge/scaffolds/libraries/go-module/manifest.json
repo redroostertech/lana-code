@@ -1,0 +1,13 @@
+{
+  "name": "go-module",
+  "display_name": "Go Module Library",
+  "description": "Go module library with exported functions and table-driven tests",
+  "category": "libraries",
+  "tags": ["go", "module", "library"],
+  "default_project_name": "my-lib",
+  "files": [
+    "go.mod",
+    "mylib.go",
+    "mylib_test.go"
+  ]
+}

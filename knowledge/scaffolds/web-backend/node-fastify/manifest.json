@@ -1,0 +1,15 @@
+{
+  "name": "node-fastify",
+  "display_name": "Node.js + Fastify",
+  "description": "Node.js REST API with Fastify and TypeScript",
+  "category": "web-backend",
+  "tags": ["node", "fastify", "typescript", "rest", "api"],
+  "default_project_name": "my-fastify-app",
+  "files": [
+    "package.json",
+    "tsconfig.json",
+    ".env.example",
+    "src/index.ts",
+    "src/routes/index.ts"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "nuxt",
+  "display_name": "Nuxt 3",
+  "description": "Nuxt 3 full-stack Vue framework",
+  "category": "web-frontend",
+  "tags": ["nuxt", "vue", "typescript", "ssr", "full-stack"],
+  "default_project_name": "my-nuxt-app",
+  "files": [
+    "package.json",
+    "nuxt.config.ts",
+    "tsconfig.json",
+    "app.vue",
+    "pages/index.vue",
+    "server/tsconfig.json"
+  ]
+}

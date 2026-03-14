@@ -1,0 +1,23 @@
+{
+  "name": "django",
+  "display_name": "Django",
+  "description": "Django 5 web application with Python",
+  "category": "web-backend",
+  "tags": ["python", "django", "web", "orm"],
+  "default_project_name": "myproject",
+  "files": [
+    "requirements.txt",
+    "manage.py",
+    "myproject/__init__.py",
+    "myproject/settings.py",
+    "myproject/urls.py",
+    "myproject/wsgi.py",
+    "myproject/asgi.py",
+    "myapp/__init__.py",
+    "myapp/admin.py",
+    "myapp/apps.py",
+    "myapp/models.py",
+    "myapp/views.py",
+    "myapp/urls.py"
+  ]
+}

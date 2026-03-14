@@ -1,0 +1,21 @@
+{
+  "name": "android-kotlin",
+  "display_name": "Android Kotlin App",
+  "description": "Android app using Kotlin with Jetpack Compose and Gradle Kotlin DSL",
+  "category": "mobile",
+  "tags": ["android", "kotlin", "compose", "jetpack", "gradle"],
+  "default_project_name": "MyApp",
+  "files": [
+    "build.gradle.kts",
+    "app/build.gradle.kts",
+    "settings.gradle.kts",
+    "gradle.properties",
+    "gradle/wrapper/gradle-wrapper.properties",
+    "app/src/main/AndroidManifest.xml",
+    "app/src/main/java/com/example/myapp/MainActivity.kt",
+    "app/src/main/java/com/example/myapp/ui/theme/Theme.kt",
+    "app/src/main/java/com/example/myapp/ui/theme/Color.kt",
+    "app/src/main/res/values/strings.xml",
+    "app/src/main/res/values/themes.xml"
+  ]
+}

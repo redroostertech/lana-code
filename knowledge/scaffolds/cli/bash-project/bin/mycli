@@ -1,0 +1,76 @@
+#!/usr/bin/env bash
+#
+# mycli - A command-line tool
+#
+set -euo pipefail
+
+VERSION="0.1.0"
+
+# Resolve the real path of this script (follow symlinks)
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+LIB_DIR="$(cd "$SCRIPT_DIR/../lib" && pwd)"
+
+# Source library files
+source "$LIB_DIR/utils.sh"
+source "$LIB_DIR/commands.sh"
+
+usage() {
+    cat <<EOF
+Usage: mycli <command> [options]
+
+Commands:
+    greet <name>    Greet someone by name
+    info            Show application information
+    help            Show this help message
+
+Options:
+    -v, --verbose   Enable verbose output
+    -V, --version   Print version and exit
+    -h, --help      Show this help message
+
+EOF
+}
+
+# Parse global flags
+VERBOSE=0
+while [ $# -gt 0 ]; do
+    case "$1" in
+        -v|--verbose)
+            VERBOSE=1
+            shift
+            ;;
+        -V|--version)
+            echo "mycli v${VERSION}"
+            exit 0
+            ;;
+        -h|--help)
+            usage
+            exit 0
+            ;;
+        -*)
+            die "Unknown option: $1"
+            ;;
+        *)
+            break
+            ;;
+    esac
+done
+
+# Dispatch to subcommands
+COMMAND="${1:-help}"
+shift 2>/dev/null || true
+
+case "$COMMAND" in
+    greet)
+        cmd_greet "$@"
+        ;;
+    info)
+        cmd_info
+        ;;
+    help)
+        usage
+        ;;
+    *)
+        die "Unknown command: $COMMAND (try 'mycli help')"
+        ;;
+esac

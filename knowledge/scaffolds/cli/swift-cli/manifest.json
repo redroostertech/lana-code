@@ -1,0 +1,13 @@
+{
+  "name": "swift-cli",
+  "display_name": "Swift CLI (ArgumentParser)",
+  "description": "Swift command-line application using swift-argument-parser with subcommands",
+  "category": "cli",
+  "tags": ["swift", "argument-parser", "cli", "macos"],
+  "default_project_name": "my-cli",
+  "files": [
+    "Package.swift",
+    "Sources/MyCLI/MyCLI.swift",
+    "Sources/MyCLI/Commands/GreetCommand.swift"
+  ]
+}
