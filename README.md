@@ -350,4 +350,4 @@ LANA CODE is part of the broader LANA ecosystem:
 
 ## License
 
-MIT License.
+Part of the LANA AI suite. MIT License. Copyright (c) 2026 RedRooster Technologies Inc.
